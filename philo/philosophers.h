@@ -6,7 +6,7 @@
 /*   By: maryaada <maryaada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/23 13:12:49 by maryaada          #+#    #+#             */
-/*   Updated: 2026/05/02 20:13:06 by maryaada         ###   ########.fr       */
+/*   Updated: 2026/05/04 18:08:25 by maryaada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,10 @@
 
 
 //use long cauyse we are using ms so int will be annoying
+
+//telling compiler the struct is defined down already
+typedef struct s_fork_data	t_fork;
+typedef struct s_sim_data	t_sim_data;
 
 //philo data
 typedef struct s_philo_data {
@@ -41,9 +45,7 @@ typedef struct s_fork_data {
 	pthread_mutex_t fork;
 	int	fork_id;
 
-	
 }	t_fork;
-
 
 //general data storage
 typedef struct s_sim_data {
@@ -58,5 +60,8 @@ typedef struct s_sim_data {
 	t_philo *philos;
 	 
 }	t_sim_data;
+
+void	print_error(char *msg);
+
 
 #endif
