@@ -6,7 +6,7 @@
 /*   By: maryaada <maryaada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/23 13:12:49 by maryaada          #+#    #+#             */
-/*   Updated: 2026/05/11 10:46:49 by maryaada         ###   ########.fr       */
+/*   Updated: 2026/05/11 14:32:37 by maryaada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include <limits.h>
 
 
-//use long cauyse we are using ms so int will be annoying
+//use long cause we are using ms so int will be annoying
 
 //telling compiler the struct is defined down already
 typedef struct s_fork_data	t_fork;
@@ -65,6 +65,8 @@ void	print_error(char *msg);
 
 
 long	to_num(const char *str, int *over_check);
-int	is_valid_input(char *str);
+int		is_valid_input(char *str);
+void 	parse_args(int argc, char **argv, t_sim_data *sim);
+int		ft_strlen(char *str);
 
 #endif

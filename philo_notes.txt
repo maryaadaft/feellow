@@ -1,0 +1,11 @@
+philo notes
+
+The if (argc == 5) block is wrong
+You check argc < 5 || argc > 6 first, then immediately after do if (argc == 5). That means if someone passes 6 arguments (valid!) your entire parsing block is skipped. Remove that wrapper — just always parse, and handle the optional 6th arg with its own check:
+
+- sim->limit_meals = -1; //when 5 args this is not checked, set to -1 for later
+
+- That sim you malloc'd is immediately leaked. Nothing in your program can use it.
+>> malloc your structs in main and pass it to the fn parse_args so you can free later as well!!
+or this...
+:- Then parse_args takes t_sim_data *sim as a parameter — no malloc needed here. The big mallocs (forks array, philos array) happen in init_data in Phase 3.
