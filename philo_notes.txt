@@ -9,3 +9,19 @@ You check argc < 5 || argc > 6 first, then immediately after do if (argc == 5). 
 >> malloc your structs in main and pass it to the fn parse_args so you can free later as well!!
 or this...
 :- Then parse_args takes t_sim_data *sim as a parameter — no malloc needed here. The big mallocs (forks array, philos array) happen in init_data in Phase 3.
+
+✅ Correct number of arguments (4 or 5)
+✅ All arguments are digits only (no letters, no symbols)
+✅ Negative numbers caught with a specific message
+✅ Empty string arguments caught
+✅ Overflow above INT_MAX caught
+✅ All values are positive (no zeros)
+✅ limit_meals defaults to -1 when 5th arg not given
+✅ print_error writes to stderr and exits cleanly
+✅ sim is a stack variable in main, no leaked mallocs
+
+
+parsing almost done, the values given as a parameter are given in milliseconds and usleep needs those values in MICROseconds.
+
+except for argv[1]  cause that is the number of philosophers, multiply the other values by 1000.
+and check if time_to_eat, time_to_die, time_to_sleep is less than 60ms

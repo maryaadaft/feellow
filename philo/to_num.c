@@ -47,7 +47,6 @@ long	to_num(const char *str, int *over_check)
 	int			i;
 	// int			sign;
 	long long	n;
-	// sign = 1;
 	n = 0;
 	i = 0;
 	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
