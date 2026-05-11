@@ -6,7 +6,7 @@
 /*   By: maryaada <maryaada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/23 13:12:49 by maryaada          #+#    #+#             */
-/*   Updated: 2026/05/04 18:08:25 by maryaada         ###   ########.fr       */
+/*   Updated: 2026/05/11 10:46:49 by maryaada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,5 +63,8 @@ typedef struct s_sim_data {
 
 void	print_error(char *msg);
 
+
+long	to_num(const char *str, int *over_check);
+int	is_valid_input(char *str);
 
 #endif
