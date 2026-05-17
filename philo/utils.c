@@ -6,7 +6,7 @@
 /*   By: maryaada <maryaada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/04 17:58:11 by maryaada          #+#    #+#             */
-/*   Updated: 2026/05/11 14:23:59 by maryaada         ###   ########.fr       */
+/*   Updated: 2026/05/15 16:41:16 by maryaada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ int	ft_strlen(char *str)
 	return (i);
 }
 
+
+//remove this at the end
 void    print_error(char *msg)
 {
 	write(2, "\n=================================\n", 35);
