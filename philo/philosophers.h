@@ -6,7 +6,7 @@
 /*   By: maryaada <maryaada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/23 13:12:49 by maryaada          #+#    #+#             */
-/*   Updated: 2026/05/11 14:32:37 by maryaada         ###   ########.fr       */
+/*   Updated: 2026/05/17 12:23:59 by maryaada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <sys/time.h>
 # include <pthread.h>
 # include <limits.h>
+# include <stdbool.h>
 
 
 //use long cause we are using ms so int will be annoying
@@ -32,12 +33,11 @@ typedef struct s_philo_data {
 	int	id;
 	int	times_ate;
 	int	max_food;
-	int	time_since_meal; 
+	int last_meal_time; 
 	t_fork *l_fork;
 	t_fork *r_fork;
 	pthread_t	thread_id; 
-	t_sim_data *sim_Data;
-	
+	t_sim_data *sim_data;
 }	t_philo;
 
 //the fork
