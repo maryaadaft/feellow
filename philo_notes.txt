@@ -25,3 +25,34 @@ parsing almost done, the values given as a parameter are given in milliseconds a
 
 except for argv[1]  cause that is the number of philosophers, multiply the other values by 1000.
 and check if time_to_eat, time_to_die, time_to_sleep is less than 60ms
+
+parsing done for input, but not completely //come back to this
+
+------------------
+initialising data
+------------------
+
+create a fn that initilises the data at t_sim_data: 
+
+typedef struct s_sim_data {
+	long philo_n;
+	long time_to_die;
+	long time_to_eat;
+	long time_to_sleep;
+	long limit_meals; //5th arg if specified that will end sim at n
+	long start_sim;
+	int end_sim; //boolean whether all philos ate or one died
+	t_fork *forks;
+	t_philo *philos;
+	 
+}	t_sim_data;
+
+specifically for the last 3
+for allocating philos
+	sim_data->philos = malloc(sizeof(t_philo) * sim_data->philo_n);
+a malloc the size of t_philo (not t_sim_data) times the number saved in t_sim_data philo_n
+
+-- handle mutex error fn (later) incase any of the mutex fns fail and to save lines
+-- handle thread error fn (later) similar to handle mutex error
+
+

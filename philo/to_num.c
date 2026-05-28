@@ -9,7 +9,7 @@ int	is_valid_input(char *str)
 	if (!str || !str[0])
         return (0);
 	if (str[i] == '-')
-		print_error("Numbers should be positive!");
+		print_error("Numbers should be positive!"); //change to return 0
 	while (str[i] != '\0')
 	{
 		if (str[i] < '0' || str[i] > '9')
