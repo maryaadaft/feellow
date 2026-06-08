@@ -6,7 +6,7 @@
 /*   By: maryaada <maryaada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/23 13:12:49 by maryaada          #+#    #+#             */
-/*   Updated: 2026/05/29 16:37:06 by maryaada         ###   ########.fr       */
+/*   Updated: 2026/05/30 13:46:54 by maryaada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ typedef struct s_fork_data {
 
 }	t_fork;
 
-//general data storage
+//general data storage table
 typedef struct s_sim_data {
 	long philo_n;
 	long time_to_die;
