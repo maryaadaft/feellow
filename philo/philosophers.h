@@ -6,7 +6,7 @@
 /*   By: maryaada <maryaada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/23 13:12:49 by maryaada          #+#    #+#             */
-/*   Updated: 2026/05/30 13:46:54 by maryaada         ###   ########.fr       */
+/*   Updated: 2026/06/08 16:34:28 by maryaada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ typedef struct s_sim_data	t_sim_data;
 typedef struct s_philo_data {
 	int	id;
 	int	times_ate;
-	int	max_food;
-	int last_meal_time; 
+	// int	max_food; //remove? 
+	long last_meal_time; 
 	t_fork *l_fork;
 	t_fork *r_fork;
 	pthread_t	thread_id; 
@@ -55,6 +55,8 @@ typedef struct s_sim_data {
 	long limit_meals; //5th arg if specified that will end sim at n
 	long start_sim;
 	int end_sim; //boolean whether all philos ate or one died
+	pthread_mutex_t dead_lock;
+	pthread_mutex_t print_lock;
 	t_fork *forks;
 	t_philo *philos;
 	 

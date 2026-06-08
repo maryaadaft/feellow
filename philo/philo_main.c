@@ -6,12 +6,13 @@
 /*   By: maryaada <maryaada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/23 13:10:20 by maryaada          #+#    #+#             */
-/*   Updated: 2026/05/11 15:10:54 by maryaada         ###   ########.fr       */
+/*   Updated: 2026/06/08 16:08:33 by maryaada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
 
+//!!delete this its for testing!!
 void	pcheck(t_sim_data *sim)
 {
 	printf("philo n is - %ld\n", sim->philo_n);
@@ -28,12 +29,13 @@ t_sim_data	*parse_sim_data(char **argv, t_sim_data *sim)
 
 	over_check = 0;
 	sim->philo_n = to_num(argv[1], &over_check);
-	sim->time_to_die = to_num(argv[2], &over_check) * 1000;
-	sim->time_to_eat = to_num(argv[3], &over_check) * 1000;
-	sim->time_to_sleep = to_num(argv[4], &over_check) * 1000;
-	sim->limit_meals = -1; //when 5 args this is not checked, set to -1 for later
-	if (sim->time_to_die < 60000 || sim->time_to_eat < 60000
-		|| sim->time_to_sleep < 60000)
+	sim->time_to_die = to_num(argv[2], &over_check);
+	sim->time_to_eat = to_num(argv[3], &over_check);
+	sim->time_to_sleep = to_num(argv[4], &over_check);
+	if(!argv[5])
+		sim->limit_meals = -1; //when 5 args this is not checked, set to -1 for later
+	if (sim->time_to_die < 60 || sim->time_to_eat < 60
+		|| sim->time_to_sleep < 60)
 			print_error("Time specified is less than 60ms");
 	if(over_check == 1)
 		print_error("invalid range detected, input range less than INT_MAX");

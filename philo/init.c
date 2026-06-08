@@ -6,7 +6,7 @@
 /*   By: maryaada <maryaada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/17 11:48:49 by maryaada          #+#    #+#             */
-/*   Updated: 2026/05/30 13:47:56 by maryaada         ###   ########.fr       */
+/*   Updated: 2026/06/08 16:29:20 by maryaada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,4 @@ void	init_data(t_sim_data *sim_data)
 		sim_data->philos[i].sim_data = sim_data;
 		i++;
 	}
-}
-
-int main(void)
-{
-	t_sim_data *sim_data;
-	init_data(sim_data);
 }

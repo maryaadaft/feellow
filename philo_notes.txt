@@ -23,8 +23,8 @@ or this...
 
 parsing almost done, the values given as a parameter are given in milliseconds and usleep needs those values in MICROseconds.
 
-except for argv[1]  cause that is the number of philosophers, multiply the other values by 1000.
-and check if time_to_eat, time_to_die, time_to_sleep is less than 60ms
+time to think is not ever set because it has to be calculated in between run time always, time to die is how long the entire simulation runs for and each philosopher needs to eat at least twice within that time otherwise DEATH
+check if time_to_eat, time_to_die, time_to_sleep is less than 60ms
 
 parsing done for input, but not completely //come back to this
 
