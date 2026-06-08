@@ -6,7 +6,7 @@
 /*   By: maryaada <maryaada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/23 13:10:20 by maryaada          #+#    #+#             */
-/*   Updated: 2026/06/08 16:08:33 by maryaada         ###   ########.fr       */
+/*   Updated: 2026/06/08 17:00:54 by maryaada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,8 @@ void  parse_args(int argc, char **argv, t_sim_data *sim)
 	// 		print_error("Time specified is less than 60ms");
 	if(argc == 6)
 		sim->limit_meals = to_num(argv[5], &over_check);
-	// if(over_check == 1)
-	// 	print_error("invalid range detected, input range less than INT_MAX");
+	if(over_check == 1)
+		print_error("invalid range detected, input range less than INT_MAX");
 		//validate numbers and exit program at 5th argument
 		//with a flag maybe???? later
 }
@@ -83,5 +83,5 @@ int	main(int argc, char **argv)
 	parse_args(argc, argv, &sim);
 
 	pcheck(&sim);
-	
+
 }
