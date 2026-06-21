@@ -6,7 +6,7 @@
 /*   By: maryaada <maryaada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/17 11:48:49 by maryaada          #+#    #+#             */
-/*   Updated: 2026/06/08 16:29:20 by maryaada         ###   ########.fr       */
+/*   Updated: 2026/06/21 14:03:31 by maryaada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,18 @@ void	init_data(t_sim_data *sim_data)
 
 	i = 0;
 	sim_data->end_sim = false;
+	sim_data->start_sim = get_time_ms();
+    pthread_mutex_init(&sim_data->dead_lock, NULL);
+    pthread_mutex_init(&sim_data->print_lock, NULL);
 	sim_data->philos = malloc(sizeof(t_philo) * sim_data->philo_n);
 	if (!sim_data->philos)
-		return (print_error("failed to malloc for philos!"));
+		return (print_error("failed to malloc philos!"));
 	sim_data->forks = malloc(sizeof(t_fork) * sim_data->philo_n);
 	if (!sim_data->forks)
 		return (print_error("failed to malloc forks"));
 	while(i < sim_data->philo_n)
 	{
+		pthread_mutex_init(&sim_data->forks[i].fork, NULL);
 		sim_data->philos[i].id = i + 1;
 		sim_data->philos[i].times_ate = 0;
 		sim_data->philos[i].last_meal_time = sim_data->start_sim;
@@ -36,3 +40,4 @@ void	init_data(t_sim_data *sim_data)
 		i++;
 	}
 }
+

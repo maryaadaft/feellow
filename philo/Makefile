@@ -1,6 +1,6 @@
 CC = cc
 CFLAGs = -Wall -Wextra -Werror
-SRCs = philo_main.c utils.c to_num.c
+SRCs = philo_main.c utils.c to_num.c clean_error.c
 OBJs = ${SRCs:.c=.o}
 Name = philo
 

@@ -6,7 +6,7 @@
 /*   By: maryaada <maryaada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/23 13:10:20 by maryaada          #+#    #+#             */
-/*   Updated: 2026/06/08 17:00:54 by maryaada         ###   ########.fr       */
+/*   Updated: 2026/06/21 13:49:26 by maryaada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,6 @@ t_sim_data	*parse_sim_data(char **argv, t_sim_data *sim)
 	sim->time_to_sleep = to_num(argv[4], &over_check);
 	if(!argv[5])
 		sim->limit_meals = -1; //when 5 args this is not checked, set to -1 for later
-	if (sim->time_to_die < 60 || sim->time_to_eat < 60
-		|| sim->time_to_sleep < 60)
-			print_error("Time specified is less than 60ms");
 	if(over_check == 1)
 		print_error("invalid range detected, input range less than INT_MAX");
 	return (sim);
