@@ -6,7 +6,7 @@
 /*   By: maryaada <maryaada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/23 13:10:20 by maryaada          #+#    #+#             */
-/*   Updated: 2026/06/21 13:49:26 by maryaada         ###   ########.fr       */
+/*   Updated: 2026/06/22 13:41:03 by maryaada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,32 @@ void	pcheck(t_sim_data *sim)
 	if (sim->limit_meals)
 		printf("limit is - %ld\n", sim->limit_meals);
 }
+
+void    debug_print(t_sim_data *sim)
+{
+    int i;
+
+    i = 0;
+    printf("=== SIM DATA ===\n");
+    printf("philo_n:      %ld\n", sim->philo_n);
+    printf("time_to_die:  %ld\n", sim->time_to_die);
+    printf("time_to_eat:  %ld\n", sim->time_to_eat);
+    printf("time_to_sleep:%ld\n", sim->time_to_sleep);
+    printf("limit_meals:  %ld\n", sim->limit_meals);
+    printf("start_sim:    %ld\n", sim->start_sim);
+    printf("\n=== PHILOSOPHERS ===\n");
+    while (i < sim->philo_n)
+    {
+        printf("philo %d | last_meal: %ld | l_fork: %d | r_fork: %d\n",
+            sim->philos[i].id,
+            sim->philos[i].last_meal_time,
+            sim->philos[i].l_fork->fork_id,
+            sim->philos[i].r_fork->fork_id);
+        i++;
+    }
+}
+
+//===================================================
 
 t_sim_data	*parse_sim_data(char **argv, t_sim_data *sim)
 {
@@ -57,20 +83,10 @@ void  parse_args(int argc, char **argv, t_sim_data *sim)
 		i++;
 	}
 	parse_sim_data(argv, sim);
-	// sim->philo_n = to_num(argv[1], &over_check);
-	// sim->time_to_die = to_num(argv[2], &over_check) * 1000;
-	// sim->time_to_eat = to_num(argv[3], &over_check) * 1000;
-	// sim->time_to_sleep = to_num(argv[4], &over_check) * 1000;
-	// sim->limit_meals = -1; //when 5 args this is not checked, set to -1 for later
-	// if (sim->time_to_die < 60000 || sim->time_to_eat < 60000
-	// 	|| sim->time_to_sleep < 60000)
-	// 		print_error("Time specified is less than 60ms");
 	if(argc == 6)
 		sim->limit_meals = to_num(argv[5], &over_check);
 	if(over_check == 1)
 		print_error("invalid range detected, input range less than INT_MAX");
-		//validate numbers and exit program at 5th argument
-		//with a flag maybe???? later
 }
 
 int	main(int argc, char **argv)
@@ -78,7 +94,10 @@ int	main(int argc, char **argv)
 	//handle args
 	t_sim_data sim;
 	parse_args(argc, argv, &sim);
+	init_data(&sim);
+	debug_print(&sim);
+	cleanup(&sim);
 
-	pcheck(&sim);
+	// pcheck(&sim);
 
 }

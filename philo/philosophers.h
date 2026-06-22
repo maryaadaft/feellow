@@ -6,7 +6,7 @@
 /*   By: maryaada <maryaada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/23 13:12:49 by maryaada          #+#    #+#             */
-/*   Updated: 2026/06/21 14:04:50 by maryaada         ###   ########.fr       */
+/*   Updated: 2026/06/22 13:34:48 by maryaada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,5 +70,12 @@ int		is_valid_input(char *str);
 void 	parse_args(int argc, char **argv, t_sim_data *sim);
 int		ft_strlen(char *str);
 void	cleanup(t_sim_data *sim);
+
+void	init_data(t_sim_data *sim_data);
+
+long	conv_to_ms(void);
+void	safe_usleep(long ms);
+void	set_end_sim(t_sim_data *sim);
+int	check_end_sim(t_sim_data *sim);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: maryaada <maryaada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/21 14:03:10 by maryaada          #+#    #+#             */
-/*   Updated: 2026/06/21 14:04:40 by maryaada         ###   ########.fr       */
+/*   Updated: 2026/06/22 13:38:52 by maryaada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	cleanup(t_sim_data *sim)
 
 void    print_error(char *msg)
 {
-	write(2, "\n=================================\n", 35);
+	write(2, "=================================\n", 35);
 	write(2, msg, ft_strlen(msg));
 	write(2, "\n=================================\n", 35);
 	exit(1); //exit the program with failure code 1;

@@ -6,7 +6,7 @@
 /*   By: maryaada <maryaada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/17 11:48:49 by maryaada          #+#    #+#             */
-/*   Updated: 2026/06/21 14:03:31 by maryaada         ###   ########.fr       */
+/*   Updated: 2026/06/22 13:37:43 by maryaada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	init_data(t_sim_data *sim_data)
 
 	i = 0;
 	sim_data->end_sim = false;
-	sim_data->start_sim = get_time_ms();
+	sim_data->start_sim = conv_to_ms();
     pthread_mutex_init(&sim_data->dead_lock, NULL);
     pthread_mutex_init(&sim_data->print_lock, NULL);
 	sim_data->philos = malloc(sizeof(t_philo) * sim_data->philo_n);
@@ -31,6 +31,7 @@ void	init_data(t_sim_data *sim_data)
 	while(i < sim_data->philo_n)
 	{
 		pthread_mutex_init(&sim_data->forks[i].fork, NULL);
+		sim_data->forks[i].fork_id = i;
 		sim_data->philos[i].id = i + 1;
 		sim_data->philos[i].times_ate = 0;
 		sim_data->philos[i].last_meal_time = sim_data->start_sim;
