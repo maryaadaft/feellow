@@ -93,9 +93,21 @@ int	main(int argc, char **argv)
 {
 	//handle args
 	t_sim_data sim;
+	int i = 0;
 	parse_args(argc, argv, &sim);
 	init_data(&sim);
-	debug_print(&sim);
+	while( i <sim.philo_n)
+	{
+		pthread_create(&sim.philos[i].thread_id, NULL, philo_routine, &sim.philos[i]);
+		i++;
+	}
+	i = 0;
+	while (i < sim.philo_n)
+	{
+		pthread_join(sim.philos[i].thread_id, NULL);
+		i++;
+	}
+	//debug_print(&sim);
 	cleanup(&sim);
 
 	// pcheck(&sim);
