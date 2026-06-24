@@ -73,6 +73,8 @@ void	cleanup(t_sim_data *sim);
 
 void	init_data(t_sim_data *sim_data);
 void    *philo_routine(void *arg);
+void    *monitor_routine(void *arg);
+
 
 long	conv_to_ms(void);
 void	safe_usleep(long ms);
