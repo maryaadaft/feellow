@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   monitor.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: maryaada <maryaada@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/06/29 11:30:08 by maryaada          #+#    #+#             */
+/*   Updated: 2026/06/29 11:48:30 by maryaada         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "philosophers.h"
 
 static int  check_all_ate(t_sim_data *sim)
@@ -10,6 +22,10 @@ static int  check_all_ate(t_sim_data *sim)
     while (i < sim->philo_n)
     {
         pthread_mutex_lock(&sim->dead_lock);
+		// printf("DEBUG: philo %d ate %d / %ld\n",
+        //     sim->philos[i].id,
+        //     sim->philos[i].times_ate,
+        //     sim->limit_meals);
         if (sim->philos[i].times_ate < sim->limit_meals)
         {
             pthread_mutex_unlock(&sim->dead_lock);

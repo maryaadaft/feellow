@@ -6,7 +6,7 @@
 /*   By: maryaada <maryaada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/21 14:03:10 by maryaada          #+#    #+#             */
-/*   Updated: 2026/06/22 13:38:52 by maryaada         ###   ########.fr       */
+/*   Updated: 2026/06/29 12:37:53 by maryaada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ void	cleanup(t_sim_data *sim)
 		pthread_mutex_destroy(&sim->forks[i].fork);
 	i++;
 	}
-	pthread_mutex_destroy(&sim->dead_lock);
-	pthread_mutex_destroy(&sim->print_lock);
+	// pthread_mutex_destroy(&sim->dead_lock);
+	// pthread_mutex_destroy(&sim->print_lock);
 	free(sim->forks);
 	free(sim->philos);
 }

@@ -6,7 +6,7 @@
 /*   By: maryaada <maryaada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/04 17:58:11 by maryaada          #+#    #+#             */
-/*   Updated: 2026/06/22 13:27:53 by maryaada         ###   ########.fr       */
+/*   Updated: 2026/06/29 12:18:41 by maryaada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,15 @@ int check_end_sim(t_sim_data *sim)
 	return (status);
 }
 
-void print_action(t_philo *philo, char *action)
+void    print_action(t_philo *philo, char *action)
 {
-	pthread_mutex_lock(&philo->sim_data->print_lock);
-	if (!check_end_sim(philo->sim_data))
-		printf("%ld %d %s\n",
-				conv_to_ms() - philo->sim_data->start_sim,
-				philo->id,
-				action);
-	pthread_mutex_unlock(&philo->sim_data->print_lock);
+    if (check_end_sim(philo->sim_data))
+        return ;
+    pthread_mutex_lock(&philo->sim_data->print_lock);
+    // if (!check_end_sim(philo->sim_data))
+        printf("%ld %d %s\n",
+            conv_to_ms() - philo->sim_data->start_sim,
+            philo->id,
+            action);
+    pthread_mutex_unlock(&philo->sim_data->print_lock);
 }

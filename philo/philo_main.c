@@ -6,7 +6,7 @@
 /*   By: maryaada <maryaada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/23 13:10:20 by maryaada          #+#    #+#             */
-/*   Updated: 2026/06/22 13:41:03 by maryaada         ###   ########.fr       */
+/*   Updated: 2026/06/29 12:02:49 by maryaada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,23 +93,27 @@ int	main(int argc, char **argv)
 {
 	//handle args
 	t_sim_data sim;
-	int i = 0;
+	pthread_t monitor;
+	int i;
+
+	i = 0;
 	parse_args(argc, argv, &sim);
+	// printf("limit_meals is: %ld\n", sim.limit_meals);
 	init_data(&sim);
 	while( i <sim.philo_n)
 	{
 		pthread_create(&sim.philos[i].thread_id, NULL, philo_routine, &sim.philos[i]);
 		i++;
 	}
+	pthread_create(&monitor, NULL, monitor_routine, &sim);
 	i = 0;
 	while (i < sim.philo_n)
 	{
 		pthread_join(sim.philos[i].thread_id, NULL);
 		i++;
 	}
+	// pthread_join(sim.philos[i].thread_id, NULL);
 	//debug_print(&sim);
 	cleanup(&sim);
-
 	// pcheck(&sim);
-
 }
