@@ -6,7 +6,7 @@
 /*   By: maryaada <maryaada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/23 13:10:20 by maryaada          #+#    #+#             */
-/*   Updated: 2026/06/29 12:02:49 by maryaada         ###   ########.fr       */
+/*   Updated: 2026/07/18 11:36:04 by maryaada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,11 +55,13 @@ t_sim_data	*parse_sim_data(char **argv, t_sim_data *sim)
 
 	over_check = 0;
 	sim->philo_n = to_num(argv[1], &over_check);
+	if (sim->philo_n <= 0)
+		print_error("Invalid number of philosophers");
 	sim->time_to_die = to_num(argv[2], &over_check);
 	sim->time_to_eat = to_num(argv[3], &over_check);
 	sim->time_to_sleep = to_num(argv[4], &over_check);
 	if(!argv[5])
-		sim->limit_meals = -1; //when 5 args this is not checked, set to -1 for later
+		sim->limit_meals = -1;
 	if(over_check == 1)
 		print_error("invalid range detected, input range less than INT_MAX");
 	return (sim);
@@ -85,7 +87,7 @@ void  parse_args(int argc, char **argv, t_sim_data *sim)
 	parse_sim_data(argv, sim);
 	if(argc == 6)
 		sim->limit_meals = to_num(argv[5], &over_check);
-	if(over_check == 1)
+	if(over_check == 1 || sim->limit_meals == 0)
 		print_error("invalid range detected, input range less than INT_MAX");
 }
 
@@ -112,7 +114,7 @@ int	main(int argc, char **argv)
 		pthread_join(sim.philos[i].thread_id, NULL);
 		i++;
 	}
-	// pthread_join(sim.philos[i].thread_id, NULL);
+	pthread_join(monitor, NULL);
 	//debug_print(&sim);
 	cleanup(&sim);
 	// pcheck(&sim);
