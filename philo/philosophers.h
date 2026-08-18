@@ -6,7 +6,7 @@
 /*   By: maryaada <maryaada@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/23 13:12:49 by maryaada          #+#    #+#             */
-/*   Updated: 2026/08/03 14:28:44 by maryaada         ###   ########.fr       */
+/*   Updated: 2026/08/18 12:54:50 by maryaada         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,5 +70,7 @@ void	safe_usleep(long ms);
 void	set_end_sim(t_sim_data *sim);
 int		check_end_sim(t_sim_data *sim);
 void	print_action(t_philo *philo, char *action);
+void	take_forks(t_philo *philo);
+void	release_forks(t_philo *philo);
 
 #endif

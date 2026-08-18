@@ -1,6 +1,2 @@
-# feellow
-sombodeh touch ma spaghett
+_This project has been created as part of the 42 curriculum by maryaada_
 
-## Description
-## Instructions
-## Resources

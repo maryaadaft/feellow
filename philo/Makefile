@@ -1,6 +1,6 @@
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -pthread
-SRCs = philo_main.c utils.c to_num.c clean_error.c calc_time.c init.c routine.c monitor.c
+SRCs = philo_main.c utils.c to_num.c clean_error.c calc_time.c init.c routine.c monitor.c fork_utils.c
 OBJs = ${SRCs:.c=.o}
 Name = philo
 
